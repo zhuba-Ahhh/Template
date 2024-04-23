@@ -7,3 +7,6 @@ coverage
 .eslintcache
 pnpm-lock.yaml
 *.log
+
+yarn.lock
+package-lock.json

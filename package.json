@@ -1,0 +1,23 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "templates",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuba-Ahhh/Template.git"
+  },
+  "keywords": [
+    "template"
+  ],
+  "workspaces": ["Library", "React-Vite-Ts", "Vue-Vite-Ts"],
+  "author": "zhuba-Ahhh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhuba-Ahhh/Template/issues"
+  },
+  "homepage": "https://github.com/zhuba-Ahhh/Template#readme"
+}
