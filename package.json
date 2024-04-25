@@ -4,7 +4,11 @@
   "description": "templates",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "serve",
+    "build": "pnpm build-react && pnpm build-vue && pnpm copy",
+    "build-react": "cd React-Vite-Ts && pnpm build",
+    "build-vue": "cd Vue-Vite-Ts && pnpm build",
+    "copy": "node ./scripts/moveBuild.js"
   },
   "repository": {
     "type": "git",
@@ -13,11 +17,18 @@
   "keywords": [
     "template"
   ],
-  "workspaces": ["Library", "React-Vite-Ts", "Vue-Vite-Ts"],
+  "workspaces": [
+    "Library",
+    "React-Vite-Ts",
+    "Vue-Vite-Ts"
+  ],
   "author": "zhuba-Ahhh",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zhuba-Ahhh/Template/issues"
   },
-  "homepage": "https://github.com/zhuba-Ahhh/Template#readme"
+  "homepage": "https://github.com/zhuba-Ahhh/Template#readme",
+  "devDependencies": {
+    "fs-extra": "^11.2.0"
+  }
 }
