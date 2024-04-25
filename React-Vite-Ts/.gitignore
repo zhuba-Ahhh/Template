@@ -8,3 +8,6 @@ coverage
 pnpm-lock.yaml
 *.log
 stats.html
+.vscode
+yarn.lock
+package-lock.json
