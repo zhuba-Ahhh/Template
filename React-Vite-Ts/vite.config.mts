@@ -7,7 +7,6 @@ import viteCompression from 'vite-plugin-compression';
 import viteImagemin from 'vite-plugin-imagemin';
 import viteCDNPlugin from 'vite-plugin-cdn-import';
 import Unocss from 'unocss/vite';
-import { presetUno, presetAttributify, presetIcons } from 'unoCSS';
 import uncossConfig from './unocss.config';
 
 // https://vitejs.dev/config/
