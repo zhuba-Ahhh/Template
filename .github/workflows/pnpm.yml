@@ -5,16 +5,33 @@ on:
     # main 分支有 push 时触发
     branches: [main]
 
+  pull_request:
+    branches: [main]
+
 jobs:
   deploy:
     # 指定虚拟机环境
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [lts/*]
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          version: 8.6.11
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org/
+          cache: pnpm
+
       - name: Install modules
         run: pnpm install
       - name: Build
