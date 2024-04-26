@@ -4,11 +4,12 @@
   "description": "templates",
   "main": "index.ts",
   "scripts": {
-    "dev": "serve",
-    "build": "pnpm build-react && pnpm build-vue && pnpm copy",
+    "dev": "serve dist",
+    "build": "pnpm clean && pnpm build-react && pnpm build-vue && pnpm copy",
     "build-react": "cd React-Vite-Ts && pnpm build",
     "build-vue": "cd Vue-Vite-Ts && pnpm build",
-    "copy": "node ./scripts/moveBuild.js"
+    "copy": "node ./scripts/moveBuild.js",
+    "clean": "node -e \"require('fs-extra').remove('dist')\""
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/zhuba-Ahhh/Template#readme",
   "devDependencies": {
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "serve": "^14.2.3"
   }
 }
