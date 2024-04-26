@@ -17,3 +17,5 @@ export let versionLog = () => {
     versionLog = () => {};
   }
 };
+
+export * from './Resizable';

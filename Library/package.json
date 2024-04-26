@@ -14,7 +14,8 @@
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepublishOnly": "father doctor && npm run build"
+    "prepublishOnly": "father doctor && npm run build",
+    "release": "release-it"
   },
   "authors": [],
   "license": "MIT",
@@ -67,7 +68,9 @@
     "prettier-plugin-packagejson": "^2.2.18",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "stylelint": "^14.9.1"
+    "release-it": "^17.2.1",
+    "stylelint": "^14.9.1",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "antd": "^5.15.1",

@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "dev": "serve dist",
-    "build": "pnpm clean && concurrently \"pnpm build-react\" \"pnpm build-vue\" && pnpm copy",
+    "build": "pnpm clean && pnpm build-library && concurrently \"pnpm build-react\" \"pnpm build-vue\" && pnpm copy",
+    "build-library": "cd Library && pnpm build",
     "build-react": "cd React-Vite-Ts && pnpm build",
     "build-vue": "cd Vue-Vite-Ts && pnpm build",
     "copy": "node ./scripts/moveBuild.js",
