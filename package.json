@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "serve dist",
-    "build": "pnpm clean && pnpm build-react && pnpm build-vue && pnpm copy",
+    "build": "pnpm clean && concurrently \"pnpm build-react\" \"pnpm build-vue\" && pnpm copy",
     "build-react": "cd React-Vite-Ts && pnpm build",
     "build-vue": "cd Vue-Vite-Ts && pnpm build",
     "copy": "node ./scripts/moveBuild.js",
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/zhuba-Ahhh/Template#readme",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "fs-extra": "^11.2.0",
     "serve": "^14.2.3"
   }
