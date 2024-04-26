@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .iframe-container {
+            border: 1px solid #ccc;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        iframe {
+            width: 90vw;
+            height: 80vh;
+            min-height: 800px;
+            border: none;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button.active {
+            background-color: #004490;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="active" data-project="React">React-Vite-Ts</button>
+        <button data-project="Vue">Vue-Vite-Ts</button>
+    </div>
+    <div class="container">
+        <div class="iframe-container">
+            <iframe src="React.html" title="React-Vite-Ts"></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button');
+            const iframeContainer = document.querySelector('.iframe-container');
+            const iframe = iframeContainer.querySelector('iframe');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的 active 类
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    // 给当前点击的按钮添加 active 类
+                    this.classList.add('active');
+
+                    // 更新 iframe 源为所选项目的路径
+                    const projectId = this.getAttribute('data-project');
+                    iframe.src = `${projectId}.html`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
