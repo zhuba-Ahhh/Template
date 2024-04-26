@@ -1,4 +1,4 @@
-name: Build
+name: Build & Deploy
 
 on:
   push:
@@ -36,10 +36,16 @@ jobs:
       - name: Install
         run: pnpm install
 
-      - name: Build
+      - name: Build  📦
         run: pnpm build
 
-      - name: Deploy
+      - name: Install rsync 📚
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: |
+          apt-get update && apt-get install -y rsync
+
+      - name: Deploy 🚀
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
           branch: gh-pages
