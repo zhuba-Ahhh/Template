@@ -32,10 +32,12 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: pnpm
 
-      - name: Install modules
+      - name: Install
         run: pnpm install
+
       - name: Build
         run: pnpm build
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
