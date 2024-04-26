@@ -40,6 +40,10 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Install rsync 📚
+        run: |
+          apt-get update && apt-get install -y rsync
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
