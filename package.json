@@ -9,7 +9,7 @@
     "build-react": "cd React-Vite-Ts && pnpm build",
     "build-vue": "cd Vue-Vite-Ts && pnpm build",
     "copy": "node ./scripts/moveBuild.js",
-    "clean": "node -e \"require('fs-extra').remove('dist')\""
+    "clean": "node ./scripts/removeDist.js"
   },
   "repository": {
     "type": "git",
