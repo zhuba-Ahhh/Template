@@ -16,7 +16,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.13",
-    "unocss": "^0.59.4"
+    "unocss": "^0.59.4",
+    "zhuba-tools": "^0.0.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.1.0",
