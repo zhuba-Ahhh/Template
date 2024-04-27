@@ -9,7 +9,13 @@
     "serve": "vite preview",
     "commit": "commit",
     "format": "prettier --write --ignore-unknown .",
-    "lint": "eslint --cache ./src"
+    "lint": "eslint --cache ./src",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm lint\n pnpm format"
+    }
   },
   "dependencies": {
     "antd": "^5.15.1",
@@ -39,7 +45,7 @@
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^6.2.2",
-    "husky": "^9.0.11",
+    "husky": "^8.0.0",
     "less": "^4.2.0",
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.21",

@@ -17,7 +17,7 @@ function App() {
     ({ width, height }: Pick<React.CSSProperties, 'height' | 'width'>) => {
       setStyle((pre) => ({ ...pre, width, height }));
     },
-    [style]
+    []
   );
   return (
     <div className={`flex items-center justify-center ${css.test}`}>
