@@ -45,12 +45,12 @@ export default defineConfig({
         {
           name: 'react',
           var: 'React',
-          path: `https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.production.min.js`,
+          path: `umd/react.production.min.js`,
         },
         {
           name: 'react-dom',
           var: 'ReactDOM',
-          path: `https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js`,
+          path: `umd/react-dom.production.min.js`,
         },
       ],
     }),
