@@ -39,8 +39,18 @@ export default defineConfig({
       modules: [
         {
           name: 'lodash',
-          var: '_',
+          var: 'lodash',
           path: `https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js`,
+        },
+        {
+          name: 'react',
+          var: 'React',
+          path: `umd/react.production.min.js`,
+        },
+        {
+          name: 'react-dom',
+          var: 'ReactDOM',
+          path: `umd/react-dom.production.min.js`,
         },
       ],
     }),
@@ -103,11 +113,17 @@ export default defineConfig({
         entryFileNames: 'js/[name]-[hash].js', // 包的入口文件名称
         assetFileNames: '[ext]/[name]-[hash].[ext]', // 资源文件像 字体，图片等
         experimentalMinChunkSize: 10 * 1024, // 单位b 合并小chunk
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          }
+        },
       },
       treeshake: {
         preset: 'recommended',
         manualPureFunctions: ['console.log'],
       },
+      external: ['lodash', 'react', 'react-dom'],
     },
     minify: 'terser', // 启用 terser 压缩
     terserOptions: {
