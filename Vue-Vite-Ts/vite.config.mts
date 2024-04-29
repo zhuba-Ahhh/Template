@@ -4,6 +4,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import uncossConfig from "./unocss.config";
 import Unocss from "unocss/vite";
 import viteImagemin from "vite-plugin-imagemin";
+import viteCDNPlugin from "vite-plugin-cdn-import";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,6 +18,16 @@ export default defineConfig({
     vue(),
     visualizer(),
     Unocss(uncossConfig),
+    viteCDNPlugin({
+      // 需要 CDN 加速的模块
+      modules: [
+        {
+          name: "vue",
+          var: "Vue",
+          path: `https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.global.js`,
+        },
+      ],
+    }),
     viteImagemin({
       gifsicle: {
         // gif图片压缩
@@ -65,6 +76,7 @@ export default defineConfig({
         preset: "recommended",
         manualPureFunctions: ["console.log"],
       },
+      external: ["vue"],
     },
     minify: "terser", // 启用 terser 压缩
     terserOptions: {
