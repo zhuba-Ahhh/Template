@@ -8,6 +8,7 @@
     "plugin:react-hooks/recommended",
     "prettier"
   ],
+  "plugins": ["react-refresh"],
   "overrides": [
     {
       // enable eslint-plugin-testing-library rules or preset only for matching files!
@@ -23,7 +24,8 @@
   "rules": {
     // for testing if eslint works properly,
     // feel free to remove this if you do not need it
-    "import/no-unused-modules": [1, { "unusedExports": true }]
+    "import/no-unused-modules": [1, { "unusedExports": true }],
+    "react-refresh/only-export-components": "warn"
   },
   "settings": {
     "import/parsers": {
