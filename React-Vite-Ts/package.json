@@ -9,8 +9,7 @@
     "serve": "vite preview",
     "commit": "commit",
     "format": "prettier --write --ignore-unknown .",
-    "lint": "eslint --cache ./src",
-    "prepare": "husky install"
+    "lint": "eslint --cache ./src"
   },
   "husky": {
     "hooks": {
