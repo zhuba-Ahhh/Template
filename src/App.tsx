@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./App.less"; // 导入您的 CSS 文件
 
 const App = () => {
-  const [activeProject, setActiveProject] = useState("React");
+  const [activeProject, setActiveProject] = useState<"React" | "Vue">("React");
 
   useEffect(() => {
     document.title = `Project Showcase - ${activeProject}`;
   }, [activeProject]);
 
-  const handleProjectClick = (project: React.SetStateAction<string>) => {
+  const handleProjectClick = (
+    project: React.SetStateAction<"React" | "Vue">
+  ) => {
     setActiveProject(project);
   };
 
