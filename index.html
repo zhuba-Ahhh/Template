@@ -1,120 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg" />
     <title>Project Showcase</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            text-align: center; /* 添加文本居中 */
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        text-align: center; /* 添加文本居中 */
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 20px; /* 添加间距 */
+      }
+      .iframe-container {
+        /* border: 1px solid #ccc; */
+        border-radius: 8px; /* 添加圆角 */
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease; /* 添加过渡效果 */
+      }
+      iframe {
+        width: 90vw;
+        height: 80vh;
+        min-height: 400px; /* 调整最小高度 */
+        max-height: 800px; /* 添加最大高度限制 */
+        border: none;
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */ /* 添加阴影 */
+      }
+      .button-container {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center; /* 使按钮水平居中 */
+        gap: 10px; /* 添加按钮间距 */
+      }
+      button {
+        padding: 10px 20px;
+        margin: 0; /* 移除默认边距 */
+        cursor: pointer;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none; /* 移除轮廓 */
+        transition: background-color 0.3s ease; /* 添加背景颜色过渡 */
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      button.active {
+        background-color: #004490;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* 添加内阴影表示激活状态 */
+      }
+      /* 添加响应式设计 */
+      @media (max-width: 600px) {
         .container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            gap: 20px; /* 添加间距 */
+          flex-direction: column;
+          align-items: center;
         }
         .iframe-container {
-            /* border: 1px solid #ccc; */
-            border-radius: 8px; /* 添加圆角 */
-            margin: 10px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease; /* 添加过渡效果 */
+          width: 80%; /* 在小屏幕上调整宽度 */
         }
-        iframe {
-            width: 90vw;
-            height: 80vh;
-            min-height: 400px; /* 调整最小高度 */
-            max-height: 800px; /* 添加最大高度限制 */
-            border: none;
-            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */ /* 添加阴影 */
-        }
-        .button-container {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center; /* 使按钮水平居中 */
-            gap: 10px; /* 添加按钮间距 */
-        }
-        button {
-            padding: 10px 20px;
-            margin: 0; /* 移除默认边距 */
-            cursor: pointer;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            font-size: 16px;
-            outline: none; /* 移除轮廓 */
-            transition: background-color 0.3s ease; /* 添加背景颜色过渡 */
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        button.active {
-            background-color: #004490;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* 添加内阴影表示激活状态 */
-        }
-        /* 添加响应式设计 */
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .iframe-container {
-                width: 80%; /* 在小屏幕上调整宽度 */
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="button-container">
-        <button class="active" data-project="React">React-Vite-Ts</button>
-        <button data-project="Vue">Vue-Vite-Ts</button>
+      <button class="active" data-project="React">React-Vite-Ts</button>
+      <button data-project="Vue">Vue-Vite-Ts</button>
     </div>
     <div class="container">
-        <div class="iframe-container">
-            <iframe src="React.html" title="React-Vite-Ts"></iframe>
-            <iframe src="Vue.html" title="React-Vite-Ts" style="display:none"></iframe>
-        </div>
+      <div class="iframe-container">
+        <iframe src="React.html" title="React-Vite-Ts"></iframe>
+        <iframe
+          src="Vue.html"
+          title="React-Vite-Ts"
+          style="display: none"
+        ></iframe>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('button');
-            const iframes = document.querySelectorAll('.iframe-container iframe');
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll("button");
+        const iframes = document.querySelectorAll(".iframe-container iframe");
 
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // 移除所有按钮的 active 类
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    // 给当前点击的按钮添加 active 类
-                    this.classList.add('active');
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // 移除所有按钮的 active 类
+            buttons.forEach((btn) => btn.classList.remove("active"));
+            // 给当前点击的按钮添加 active 类
+            this.classList.add("active");
 
-                    // 隐藏所有 iframes
-                    iframes.forEach(iframe => {
-                        iframe.style.display = 'none';
-                    });
-
-                    // 显示当前 iframe
-                    const projectId = this.getAttribute('data-project');
-                    document.querySelector(`iframe[src$="${projectId}.html"]`).style.display = 'block';
-                });
+            // 隐藏所有 iframes
+            iframes.forEach((iframe) => {
+              iframe.style.display = "none";
             });
+
+            // 显示当前 iframe
+            const projectId = this.getAttribute("data-project");
+            document.querySelector(
+              `iframe[src$="${projectId}.html"]`
+            ).style.display = "block";
+          });
         });
+      });
     </script>
-</body>
+  </body>
 </html>
