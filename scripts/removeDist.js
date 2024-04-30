@@ -1,3 +1,3 @@
-const fs = require('fs-extra');
+const fs = require("fs-extra");
 
-fs.remove('dist')
+fs.remove("dist");

@@ -5,7 +5,7 @@ import svgrPlugin from 'vite-plugin-svgr';
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
 import viteImagemin from 'vite-plugin-imagemin';
-import viteCDNPlugin from 'vite-plugin-cdn-import';
+import importToCDN, { autoComplete } from 'vite-plugin-cdn-import';
 import Unocss from 'unocss/vite';
 import uncossConfig from './unocss.config';
 
@@ -34,24 +34,12 @@ export default defineConfig({
       // 打包完成后自动打开浏览器，显示产物体积报告
       open: false,
     }),
-    viteCDNPlugin({
-      // 需要 CDN 加速的模块
+    importToCDN({
       modules: [
-        {
-          name: 'lodash',
-          var: 'lodash',
-          path: `https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js`,
-        },
-        {
-          name: 'react',
-          var: 'React',
-          path: `umd/react.production.min.js`,
-        },
-        {
-          name: 'react-dom',
-          var: 'ReactDOM',
-          path: `umd/react-dom.production.min.js`,
-        },
+        autoComplete('react'),
+        autoComplete('react-dom'),
+        autoComplete('react-router-dom'),
+        autoComplete('axios'),
       ],
     }),
     viteImagemin({
@@ -123,7 +111,7 @@ export default defineConfig({
         preset: 'recommended',
         manualPureFunctions: ['console.log'],
       },
-      external: ['lodash', 'react', 'react-dom'],
+      external: ['react', 'react-dom', 'axios', 'react-router-dom'],
     },
     minify: 'terser', // 启用 terser 压缩
     terserOptions: {

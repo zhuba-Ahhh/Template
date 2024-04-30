@@ -9,5 +9,4 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
 import css from "./index.module.less";
-console.log(css);
 </script>

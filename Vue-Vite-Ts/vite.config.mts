@@ -4,7 +4,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import uncossConfig from "./unocss.config";
 import Unocss from "unocss/vite";
 import viteImagemin from "vite-plugin-imagemin";
-import viteCDNPlugin from "vite-plugin-cdn-import";
+import importToCDN, { autoComplete } from "vite-plugin-cdn-import";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,13 +18,14 @@ export default defineConfig({
     vue(),
     visualizer(),
     Unocss(uncossConfig),
-    viteCDNPlugin({
-      // 需要 CDN 加速的模块
+    importToCDN({
       modules: [
+        autoComplete("vue"),
+        autoComplete("axios"),
         {
-          name: "vue",
-          var: "Vue",
-          path: `https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.global.js`,
+          name: "vue-router",
+          var: "VueRouter",
+          path: `https://cdn.bootcdn.net/ajax/libs/vue-router/4.3.2/vue-router.global.min.js`,
         },
       ],
     }),
@@ -76,7 +77,7 @@ export default defineConfig({
         preset: "recommended",
         manualPureFunctions: ["console.log"],
       },
-      external: ["vue"],
+      external: ["vue", "axios", "vue-router"],
     },
     minify: "terser", // 启用 terser 压缩
     terserOptions: {
