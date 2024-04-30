@@ -3,7 +3,7 @@ import path from "path";
 
 const copyBuildFiles = async (pathWay, name) => {
   // 源路径：指定项目的 dist 目录
-  const source = path.join(__dirname, "..", pathWay, "dist");
+  const source = path.join(__dirname, "..", `template/${pathWay}`, "dist");
   // 目标路径：外层 Vite 项目中的指定文件夹
   const target = path.join(__dirname, "..", "dist");
 
@@ -34,8 +34,8 @@ export default () => {
 
     // 这个钩子在 Vite 构建结束后调用
     async generateBundle(_, bundle) {
-      await copyBuildFiles("template/React-Vite-Ts", "React");
-      await copyBuildFiles("template/Vue-Vite-Ts", "Vue");
+      await copyBuildFiles("React-Vite-Ts", "React");
+      await copyBuildFiles("Vue-Vite-Ts", "Vue");
     },
     async configureServer(server) {
       // 当服务器准备好时

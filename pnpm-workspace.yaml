@@ -1,2 +1,2 @@
 packages:
-  ["template/Library", "template/React-Vite-Ts", "template/Vue-Vite-Ts"]
+  ["template/*"]

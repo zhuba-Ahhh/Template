@@ -4,7 +4,7 @@ const path = require("path");
 // 定义复制文件的函数
 const copyBuildFiles = async (pathWay, name) => {
   // 源路径：指定项目的 dist 目录
-  const source = path.join(__dirname, "..", pathWay, "dist");
+  const source = path.join(__dirname, "..", `template/${pathWay}`, "dist");
   // 目标路径：外层 Vite 项目中的指定文件夹
   const target = path.join(__dirname, "..", "dist");
 
@@ -31,8 +31,8 @@ const copyBuildFiles = async (pathWay, name) => {
 
 // 异步函数来处理复制操作
 const setupDist = async () => {
-  await copyBuildFiles("template/React-Vite-Ts", "React");
-  await copyBuildFiles("template/Vue-Vite-Ts", "Vue");
+  await copyBuildFiles("React-Vite-Ts", "React");
+  await copyBuildFiles("Vue-Vite-Ts", "Vue");
 
   // 复制外层 index.html 到 dist 目录
   const source = path.join(__dirname, "..", "index-node.html");

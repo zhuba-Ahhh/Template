@@ -24,9 +24,7 @@
     "template"
   ],
   "workspaces": [
-    "template/Library",
-    "template/React-Vite-Ts",
-    "template/Vue-Vite-Ts"
+    "template/*"
   ],
   "author": "zhuba-Ahhh",
   "license": "MIT",
