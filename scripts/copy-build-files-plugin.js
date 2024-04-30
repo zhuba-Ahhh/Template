@@ -1,7 +1,6 @@
-const fs = require("fs-extra");
-const path = require("path");
+import fs from "fs-extra";
+import path from "path";
 
-// 定义复制文件的函数
 const copyBuildFiles = async (pathWay, name) => {
   // 源路径：指定项目的 dist 目录
   const source = path.join(__dirname, "..", pathWay, "dist");
@@ -29,16 +28,22 @@ const copyBuildFiles = async (pathWay, name) => {
   }
 };
 
-// 异步函数来处理复制操作
-const setupDist = async () => {
-  await copyBuildFiles("React-Vite-Ts", "React");
-  await copyBuildFiles("Vue-Vite-Ts", "Vue");
+export default () => {
+  return {
+    name: "copy-build-files-plugin",
 
-  // 复制外层 index.html 到 dist 目录
-  const source = path.join(__dirname, "..", "index-node.html");
-  const target = path.join(__dirname, "..", "dist", "index.html");
-  await fs.copy(source, target, { overwrite: true });
+    // 这个钩子在 Vite 构建结束后调用
+    async generateBundle(_, bundle) {
+      await copyBuildFiles("React-Vite-Ts", "React");
+      await copyBuildFiles("Vue-Vite-Ts", "Vue");
+    },
+    async configureServer(server) {
+      // 当服务器准备好时
+      server.httpServer.once("listening", async () => {
+        await copyBuildFiles("React-Vite-Ts", "React");
+        await copyBuildFiles("Vue-Vite-Ts", "Vue");
+        console.log("Server is ready and files are copied.");
+      });
+    },
+  };
 };
-
-// 执行 setupDist 函数
-setupDist();
