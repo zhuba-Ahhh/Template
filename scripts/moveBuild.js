@@ -31,8 +31,8 @@ const copyBuildFiles = async (pathWay, name) => {
 
 // 异步函数来处理复制操作
 const setupDist = async () => {
-  await copyBuildFiles("React-Vite-Ts", "React");
-  await copyBuildFiles("Vue-Vite-Ts", "Vue");
+  await copyBuildFiles("template/React-Vite-Ts", "React");
+  await copyBuildFiles("template/Vue-Vite-Ts", "Vue");
 
   // 复制外层 index.html 到 dist 目录
   const source = path.join(__dirname, "..", "index-node.html");

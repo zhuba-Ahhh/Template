@@ -8,9 +8,9 @@
     "build": "pnpm build-other && tsc && vite build",
     "build-node": "pnpm build-other && pnpm copy",
     "build-other": "pnpm clean && pnpm build-library && concurrently \"pnpm build-react\" \"pnpm build-vue\"",
-    "build-library": "cd Library && pnpm build",
-    "build-react": "cd React-Vite-Ts && pnpm build",
-    "build-vue": "cd Vue-Vite-Ts && pnpm build",
+    "build-library": "cd template/Library && pnpm build",
+    "build-react": "cd template/React-Vite-Ts && pnpm build",
+    "build-vue": "cd template/Vue-Vite-Ts && pnpm build",
     "copy": "node ./scripts/moveBuild.js",
     "clean": "node ./scripts/removeDist.js",
     "serve": "vite preview",
@@ -24,9 +24,9 @@
     "template"
   ],
   "workspaces": [
-    "Library",
-    "React-Vite-Ts",
-    "Vue-Vite-Ts"
+    "template/Library",
+    "template/React-Vite-Ts",
+    "template/Vue-Vite-Ts"
   ],
   "author": "zhuba-Ahhh",
   "license": "MIT",

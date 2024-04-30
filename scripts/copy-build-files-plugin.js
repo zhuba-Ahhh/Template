@@ -34,8 +34,8 @@ export default () => {
 
     // 这个钩子在 Vite 构建结束后调用
     async generateBundle(_, bundle) {
-      await copyBuildFiles("React-Vite-Ts", "React");
-      await copyBuildFiles("Vue-Vite-Ts", "Vue");
+      await copyBuildFiles("template/React-Vite-Ts", "React");
+      await copyBuildFiles("template/Vue-Vite-Ts", "Vue");
     },
     async configureServer(server) {
       // 当服务器准备好时
