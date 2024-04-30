@@ -4,13 +4,17 @@
   "description": "templates",
   "main": "index.ts",
   "scripts": {
-    "dev": "serve dist",
-    "build": "pnpm clean && pnpm build-library && concurrently \"pnpm build-react\" \"pnpm build-vue\" && pnpm copy",
+    "dev": "vite",
+    "build": "pnpm build-other && tsc && vite build",
+    "build-node": "pnpm build-other && pnpm copy",
+    "build-other": "pnpm clean && pnpm build-library && concurrently \"pnpm build-react\" \"pnpm build-vue\"",
     "build-library": "cd Library && pnpm build",
     "build-react": "cd React-Vite-Ts && pnpm build",
     "build-vue": "cd Vue-Vite-Ts && pnpm build",
     "copy": "node ./scripts/moveBuild.js",
-    "clean": "node ./scripts/removeDist.js"
+    "clean": "node ./scripts/removeDist.js",
+    "serve": "vite preview",
+    "serve-node": "serve dist"
   },
   "repository": {
     "type": "git",
@@ -31,8 +35,16 @@
   },
   "homepage": "https://github.com/zhuba-Ahhh/Template#readme",
   "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "concurrently": "^8.2.2",
     "fs-extra": "^11.2.0",
-    "serve": "^14.2.3"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "serve": "^14.2.3",
+    "typescript": "^5.1.6",
+    "vite": "^5.1.6",
+    "vite-plugin-cdn-import": "^1.0.0"
   }
 }
