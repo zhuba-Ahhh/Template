@@ -11,6 +11,7 @@ const safeParse = (str: string) => {
 export let versionLog = () => {
   if (process.env.NODE_ENV === 'production') {
     console.log(
+      `%c@zhuba`,
       'background: #FA6400;color: #fff;padding: 2px 6px;border-radius: 4px;',
       `${safeParse(VERSION)}`,
     );
