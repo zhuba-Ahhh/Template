@@ -25,7 +25,8 @@
     "react-error-boundary": "^4.0.13",
     "react-router-dom": "^6.23.0",
     "unocss": "^0.59.4",
-    "zhuba-tools": "^0.0.5"
+    "zhuba-tools": "^0.0.5",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.1.0",
