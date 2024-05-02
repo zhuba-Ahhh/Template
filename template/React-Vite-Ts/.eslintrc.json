@@ -25,7 +25,10 @@
     // for testing if eslint works properly,
     // feel free to remove this if you do not need it
     "import/no-unused-modules": [1, { "unusedExports": true }],
-    "react-refresh/only-export-components": "warn"
+    "react-refresh/only-export-components": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    // 检查依赖项的声明
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "import/parsers": {
