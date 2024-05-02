@@ -5,6 +5,7 @@ import { uuid1 } from 'zhuba-tools';
 import css from './index.module.less';
 import { Resizable } from '../../Library/dist/esm';
 import { useCallback, useState } from 'react';
+import { useNumStore } from 'store';
 
 function App() {
   const [style, setStyle] = useState<React.CSSProperties>({
@@ -19,6 +20,8 @@ function App() {
     },
     []
   );
+
+  const { num, increasePopulation } = useNumStore();
   return (
     <div className={`flex items-center justify-center ${css.test}`}>
       <img
@@ -27,12 +30,17 @@ function App() {
         alt="Vite logo"
         height={100}
         width={100}
-        key={uuid()}
+        // key={uuid()}
       />
-      <Button onClick={() => console.log('Hello')} key={uuid()}>
-        Hello{uuid1()}
+      <Button
+        onClick={() => {
+          console.log('Hello');
+          increasePopulation();
+        }}
+        // key={uuid()}
+      >
+        {num}
       </Button>
-      {uuid()}
       <Resizable
         onResize={onResize}
         axis={'both'}
