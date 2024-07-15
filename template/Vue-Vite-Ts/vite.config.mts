@@ -4,7 +4,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import uncossConfig from "./unocss.config";
 import Unocss from "unocss/vite";
 import viteImagemin from "vite-plugin-imagemin";
-import importToCDN, { autoComplete } from "vite-plugin-cdn-import";
+import importToCDN from "vite-plugin-cdn-import";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,17 +18,10 @@ export default defineConfig({
     vue(),
     visualizer(),
     Unocss(uncossConfig),
-    importToCDN({
-      modules: [
-        autoComplete("vue"),
-        autoComplete("axios"),
-        {
-          name: "vue-router",
-          var: "VueRouter",
-          path: `https://cdn.bootcdn.net/ajax/libs/vue-router/4.3.2/vue-router.global.min.js`,
-        },
-      ],
-    }),
+    // importToCDN({
+    //   modules: ["vue", "axios"],
+    //   enableInDevMode: true,
+    // }),
     viteImagemin({
       gifsicle: {
         // gif图片压缩
@@ -77,7 +70,7 @@ export default defineConfig({
         preset: "recommended",
         manualPureFunctions: ["console.log"],
       },
-      external: ["vue", "axios", "vue-router"],
+      // external: ["vue", "axios"],
     },
     minify: "terser", // 启用 terser 压缩
     terserOptions: {

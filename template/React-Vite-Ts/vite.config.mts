@@ -5,7 +5,7 @@ import svgrPlugin from 'vite-plugin-svgr';
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
 import viteImagemin from 'vite-plugin-imagemin';
-import importToCDN, { autoComplete } from 'vite-plugin-cdn-import';
+import importToCDN from 'vite-plugin-cdn-import';
 import Unocss from 'unocss/vite';
 import uncossConfig from './unocss.config';
 
@@ -35,12 +35,8 @@ export default defineConfig({
       open: false,
     }),
     importToCDN({
-      modules: [
-        autoComplete('react'),
-        autoComplete('react-dom'),
-        autoComplete('react-router-dom'),
-        autoComplete('axios'),
-      ],
+      modules: ['react', 'react-dom', 'react-router-dom', 'axios'],
+      enableInDevMode: true,
     }),
     viteImagemin({
       gifsicle: {
