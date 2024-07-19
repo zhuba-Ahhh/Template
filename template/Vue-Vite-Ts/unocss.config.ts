@@ -5,8 +5,8 @@ export const theme = {
     primary: 'var(--adm-color-primary)',
     text: 'var(--adm-color-text)',
     sed: 'var(--adm-color-text-secondary)',
-    light: 'var(--adm-color-light)',
-  },
+    light: 'var(--adm-color-light)'
+  }
 };
 
 export const unocssPresets = [presetUno(), presetAttributify(), presetIcons()];
@@ -19,7 +19,7 @@ export default defineConfig({
     // m-1 => margin: 1px; m-100 => margin: 100px
     [/^m-(\d+)$/, ([, d]) => ({ margin: `${d}px` })],
     // p-1 => padding: 1px; m-100 => padding: 100px
-    [/^p-(\d+)$/, (match) => ({ padding: `${match[1]}px` })],
+    [/^p-(\d+)$/, (match) => ({ padding: `${match[1]}px` })]
   ],
-  theme: theme,
+  theme: theme
 });

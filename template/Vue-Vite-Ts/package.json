@@ -2,9 +2,12 @@
   "name": "vue-vite-ts",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "dev": "vite",
+    "format": "prettier --write --ignore-unknown .",
+    "lint": "eslint --cache ./src",
+    "preview": "vite preview",
+    "serve": "vite preview"
   },
   "dependencies": {
     "axios": "^1.6.8",
@@ -17,7 +20,7 @@
   "devDependencies": {
     "@types/node": "^20.11.27",
     "@vitejs/plugin-vue": "^5.0.4",
-    "prettier": "^3.2.5",
+    "prefer-code-style": "^2.1.5",
     "rollup-plugin-visualizer": "^5.12.0",
     "terser": "^5.30.4",
     "typescript": "^5.4.2",

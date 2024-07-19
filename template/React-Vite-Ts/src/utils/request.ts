@@ -4,7 +4,7 @@ import type {
   AxiosError,
   AxiosRequestConfig,
   AxiosResponse,
-  InternalAxiosRequestConfig,
+  InternalAxiosRequestConfig
 } from 'axios';
 import { message as Message } from 'antd';
 
@@ -17,7 +17,7 @@ export interface Result<T = any> {
 
 const service: AxiosInstance = axios.create({
   baseURL: '/api',
-  timeout: 0,
+  timeout: 0
 });
 
 /* 请求拦截器 */
@@ -90,7 +90,7 @@ export const http = {
 
   delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
     return service.delete(url, config);
-  },
+  }
 };
 
 /* 导出 axios 实例 */

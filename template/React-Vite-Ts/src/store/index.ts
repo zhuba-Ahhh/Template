@@ -26,11 +26,11 @@ export const useNumStore = create(
         fetch: async (voting: RequestInfo | URL) => {
           const response = await fetch(voting);
           set({ num: (await response.json()) as number });
-        },
+        }
       }),
       {
         name: 'num',
-        storage: createJSONStorage(() => sessionStorage),
+        storage: createJSONStorage(() => sessionStorage)
       }
     )
   )

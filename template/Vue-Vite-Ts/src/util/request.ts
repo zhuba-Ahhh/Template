@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 import type {
   AxiosInstance,
   AxiosError,
   AxiosRequestConfig,
   AxiosResponse,
-  InternalAxiosRequestConfig,
-} from "axios";
+  InternalAxiosRequestConfig
+} from 'axios';
 
 /* 服务器返回数据的的类型，根据接口文档确定 */
 export interface Result<T = any> {
@@ -15,8 +15,8 @@ export interface Result<T = any> {
 }
 
 const service: AxiosInstance = axios.create({
-  baseURL: "/api",
-  timeout: 0,
+  baseURL: '/api',
+  timeout: 0
 });
 
 /* 请求拦截器 */
@@ -27,7 +27,7 @@ service.interceptors.request.use(
   (error: AxiosError) => {
     // Message.error(error.message);
     return Promise.reject(error);
-  },
+  }
 );
 
 /* 响应拦截器 */
@@ -47,30 +47,30 @@ service.interceptors.response.use(
   },
   (error: AxiosError) => {
     // 处理 HTTP 网络错误
-    let message = "";
+    let message = '';
     // HTTP 状态码
     const status = error.response?.status;
     switch (status) {
       case 401:
-        message = "token 失效，请重新登录";
+        message = 'token 失效，请重新登录';
         // 这里可以触发退出的 action
         break;
       case 403:
-        message = "拒绝访问";
+        message = '拒绝访问';
         break;
       case 404:
-        message = "请求地址错误";
+        message = '请求地址错误';
         break;
       case 500:
-        message = "服务器故障";
+        message = '服务器故障';
         break;
       default:
-        message = "网络连接故障";
+        message = '网络连接故障';
     }
 
     // Message.error(message);
     return Promise.reject(error);
-  },
+  }
 );
 
 /* 导出封装的请求方法 */
@@ -79,25 +79,17 @@ export const http = {
     return service.get(url, config);
   },
 
-  post<T = any>(
-    url: string,
-    data?: object,
-    config?: AxiosRequestConfig,
-  ): Promise<T> {
+  post<T = any>(url: string, data?: object, config?: AxiosRequestConfig): Promise<T> {
     return service.post(url, data, config);
   },
 
-  put<T = any>(
-    url: string,
-    data?: object,
-    config?: AxiosRequestConfig,
-  ): Promise<T> {
+  put<T = any>(url: string, data?: object, config?: AxiosRequestConfig): Promise<T> {
     return service.put(url, data, config);
   },
 
   delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
     return service.delete(url, config);
-  },
+  }
 };
 
 /* 导出 axios 实例 */

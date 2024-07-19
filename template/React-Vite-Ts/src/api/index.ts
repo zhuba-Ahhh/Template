@@ -3,14 +3,14 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
   AxiosError,
-  InternalAxiosRequestConfig,
-} from "axios";
+  InternalAxiosRequestConfig
+} from 'axios';
 
 const instance: AxiosInstance = axios.create({
   timeout: 1000 * 60,
   withCredentials: true,
   validateStatus: (status) => status >= 200 && status < 400,
-  baseURL: "", // 接口地址
+  baseURL: '' // 接口地址
 });
 
 // 添加请求拦截器
@@ -22,7 +22,7 @@ instance.interceptors.request.use(
   (error: AxiosError) => {
     // 对请求错误做些什么
     return Promise.reject(error);
-  },
+  }
 );
 
 // 添加响应拦截器
@@ -34,7 +34,7 @@ instance.interceptors.response.use(
   (error: AxiosError) => {
     // 对响应错误做点什么
     return Promise.reject(error);
-  },
+  }
 );
 
 // 封装请求方法
@@ -53,12 +53,9 @@ const request = <T = any>(config: AxiosRequestConfig): Promise<T> => {
 // 为每个 HTTP 方法创建对应的函数
 const api = {
   get: <T = any>(url: string, config?: AxiosRequestConfig): Promise<T> =>
-    request<T>({ method: "GET", url, ...config }),
-  post: <T = any>(
-    url: string,
-    data?: any,
-    config?: AxiosRequestConfig,
-  ): Promise<T> => request<T>({ method: "POST", url, data, ...config }),
+    request<T>({ method: 'GET', url, ...config }),
+  post: <T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> =>
+    request<T>({ method: 'POST', url, data, ...config })
   // 可以继续添加其他 HTTP 方法的封装
 };
 
