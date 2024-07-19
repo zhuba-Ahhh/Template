@@ -8,7 +8,8 @@
     "commit": "commit",
     "dev": "vite",
     "format": "prettier --write --ignore-unknown .",
-    "lint": "eslint --cache ./src",
+    "lint:css": "stylelint **/*.css",
+    "lint:es": "eslint ./**/*.{ts,tsx}",
     "serve": "vite preview"
   },
   "husky": {
