@@ -15,7 +15,8 @@
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepublishOnly": "father doctor && npm run build",
-    "release": "release-it"
+    "release": "release-it",
+    "prepare": "husky install"
   },
   "authors": [],
   "license": "MIT",

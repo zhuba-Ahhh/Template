@@ -10,7 +10,8 @@
     "format": "prettier --write --ignore-unknown .",
     "lint:css": "stylelint **/*.css",
     "lint:es": "eslint ./**/*.{ts,tsx}",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
