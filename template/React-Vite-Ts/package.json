@@ -10,8 +10,7 @@
     "format": "prettier --write --ignore-unknown .",
     "lint:css": "stylelint **/*.css",
     "lint:es": "eslint ./**/*.{ts,tsx}",
-    "serve": "vite preview",
-    "prepare": "husky install"
+    "serve": "vite preview"
   },
   "husky": {
     "hooks": {
@@ -36,6 +35,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.13",
+    "husky": "^8.0.0",
     "less": "^4.2.0",
     "postcss": "^8.4.21",
     "prefer-code-style": "^2.1.5",
